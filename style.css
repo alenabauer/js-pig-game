@@ -20,6 +20,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
 
 /* LAYOUT */
@@ -170,4 +171,16 @@ main {
 
 .hidden {
   display: none;
+}
+
+.rules-link {
+  color: #EEE0CB;
+  margin-top: 16px;
+  font-size: 16px;
+  transition: .3s;
+  text-decoration: none;
+  font-style: italic;
+}
+.rules-link:hover {
+  color: #62929E;
 }
