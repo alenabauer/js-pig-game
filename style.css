@@ -59,7 +59,7 @@ main {
 .score {
   font-size: 8rem;
   font-weight: 300;
-  color: #C20114;
+  color: #A20111;
   margin-bottom: auto;
 }
 
@@ -139,6 +139,7 @@ main {
 }
 .btn--hold {
   top: 46.1rem;
+  font-weight: 700;
 }
 
 .btn:active {
@@ -155,8 +156,12 @@ main {
   left: 50%;
   top: 16.5rem;
   transform: translateX(-50%);
-  height: 10rem;
-  box-shadow: 0 2rem 5rem rgba(0, 0, 0, 0.2);
+}
+.dice i {
+  font-size: 144px;
+  color: #A20111;
+  text-shadow: 4px 4px 4px #48435C;
+  margin: 0;
 }
 
 .player--winner {
