@@ -121,11 +121,6 @@ main {
   box-shadow: 0 1.75rem 3.5rem rgba(0, 0, 0, 0.1);
 }
 
-/* .btn::first-letter {
-  font-size: 2.4rem;
-  display: inline-block;
-  margin-right: 0.7rem;
-} */
 .btn i {
   color: #62929E;
   margin-right: 8px;
@@ -165,12 +160,12 @@ main {
 }
 
 .player--winner {
-  background-color: #2f2f2f;
+  background-color: #2b2836;
 }
 
 .player--winner .name {
   font-weight: 700;
-  color: #c7365f;
+  color: #c20215;
 }
 
 .hidden {

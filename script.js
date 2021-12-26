@@ -3,10 +3,9 @@
 // Select elements
 const score0Element = document.getElementById('score--0');
 const score1Element = document.getElementById('score--1');
-// const current0Element = document.getElementById('current--0');
-// const current1Element = document.getElementById('current--1');
 const diceElement = document.querySelector('.dice');
-const rollBtn = document.querySelector('.btn--roll');
+const btnRoll = document.querySelector('.btn--roll');
+const btnHold = document.querySelector('.btn--hold');
 
 // Initital state of the game
 score0Element.innerHTML = 0; // Player 1 score
@@ -33,8 +32,17 @@ let activePlayer = 0;
 const randomDice = () => {
   return Math.trunc(Math.random() * 6) + 1
 }
+// Funciton to switch between players
+const switchPlayers = () => {
+  currentScore = 0;
+  document.getElementById(`current--${activePlayer}`).innerHTML = currentScore;
+  document.querySelector(`.player--${activePlayer}`).classList.remove('player--active');
+  activePlayer = activePlayer === 0 ? 1 : 0;
+  document.querySelector(`.player--${activePlayer}`).classList.add('player--active');
+}
+
 // Add an event listener to the 'Roll Dice' button
-rollBtn.addEventListener('click', (e) => {
+btnRoll.addEventListener('click', (e) => {
   // generate a random dice number
   const num = randomDice();
   if (diceElement.classList.contains('hidden')) diceElement.classList.remove('hidden');
@@ -47,8 +55,22 @@ rollBtn.addEventListener('click', (e) => {
     document.getElementById(`current--${activePlayer}`).innerHTML = currentScore;
   } else {
     // Switch to the other player
-    currentScore = 0;
-    document.getElementById(`current--${activePlayer}`).innerHTML = currentScore;
-    activePlayer = activePlayer === 0 ? 1 : 0;
+    switchPlayers();
+  }
+})
+
+// Add an event listener to the 'Hold' button
+btnHold.addEventListener('click', (e) => {
+  // add current score to the total score of the active player
+  totalScores[activePlayer] += currentScore;
+  score0Element.innerHTML = totalScores[0];
+  score1Element.innerHTML = totalScores[1];
+
+  // check if the score is greater than or equal to 100
+  if (totalScores[activePlayer] >= 100) {
+    document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+  } else {
+    // switch to the other player
+    switchPlayers();
   }
 })
