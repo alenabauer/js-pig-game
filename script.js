@@ -6,6 +6,7 @@ const score1Element = document.getElementById('score--1');
 const diceElement = document.querySelector('.dice');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
+const btnNew = document.querySelector('.btn--new');
 
 // Initital state of the game
 score0Element.innerHTML = 0; // Player 1 score
@@ -69,8 +70,14 @@ btnHold.addEventListener('click', (e) => {
   // check if the score is greater than or equal to 100
   if (totalScores[activePlayer] >= 100) {
     document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
+    document.querySelector(`#name--${activePlayer}`).insertAdjacentHTML('beforeend', ' wins!')
   } else {
     // switch to the other player
     switchPlayers();
   }
+})
+
+// Reload the page when clicking on 'New Game'
+btnNew.addEventListener('click', (e) => {
+  window.location.reload();
 })
