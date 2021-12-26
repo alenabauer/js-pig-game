@@ -84,6 +84,7 @@ btnHold.addEventListener('click', (e) => {
       document.querySelector(`.player--${activePlayer}`).classList.add('player--winner');
       document.querySelector(`#name--${activePlayer}`).insertAdjacentHTML('beforeend', ' wins!')
       gameOver = true;
+      diceElement.classList.add('hidden');
     } else {
       // switch to the other player
       switchPlayers();
