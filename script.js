@@ -13,6 +13,14 @@ score0Element.innerHTML = 0; // Player 1 score
 score1Element.innerHTML = 0; // Player 2 score
 diceElement.classList.add('hidden'); // Hide the dice
 
+// Add the option to change the player's name
+document.getElementById('name--0').addEventListener('click', (e) => {
+  e.currentTarget.innerHTML = prompt('Name of Player 1:') || 'Player 1';
+})
+document.getElementById('name--1').addEventListener('click', (e) => {
+  e.currentTarget.innerHTML = prompt('Name of Player 2:') || 'Player 2';
+})
+
 // Fontawesome dice icons
 const diceIcons = {
   1: "<i class='fas fa-dice-one'></i>",
